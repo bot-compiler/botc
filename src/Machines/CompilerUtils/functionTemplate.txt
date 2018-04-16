@@ -1,0 +1,21 @@
+impl.#name(this.uuid, data[this.uuid]['store'], (type, value, async = false) => {
+    if(type == 'text')
+    {
+        replier(this.uuid, value, async);
+    }
+
+    else if(type == 'microbot')
+    {
+        var mb = require('./' + value + 'Bot');
+        bots[this.uuid] = new mb({
+            uuid: this.uuid,
+            parent: this,
+            rootIntent: this.rootIntent
+        });
+    }
+
+    else if(type == 'transition')
+    {
+        this.transition(value != 'string' ? value + 'State' : value);
+    }
+});

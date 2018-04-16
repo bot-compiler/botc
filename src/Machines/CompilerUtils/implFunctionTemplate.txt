@@ -1,0 +1,5 @@
+#name: function(uuid, store, replyCallback){
+    replyCallback('text', 'This is a function, replace the code here to add your own implementation');
+    conversations.done(uuid);
+    // Delete the above lines and implement your own function 
+},

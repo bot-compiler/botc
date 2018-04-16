@@ -1,0 +1,12 @@
+let input = data[this.uuid]["context"].result.resolvedQuery;
+    try
+    {
+        let index = parseInt(input);
+        #code
+        replier(this.uuid, 'I have upated it!');
+    }
+
+    catch(e)
+    {
+        replier(this.uuid, 'Hey, please tell a number');
+    }

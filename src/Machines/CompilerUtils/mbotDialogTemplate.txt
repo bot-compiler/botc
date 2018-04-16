@@ -1,0 +1,24 @@
+var machina = require('machina')
+var replier = require('../Utils/reply')
+var data = require('../data')
+var bots = require('../bot')
+var Logger = require('../Utils/logger')
+var impl = require('../#machineNameImpl')
+var conversations = require('../conversations')
+//require
+
+module.exports = machina.Fsm.extend({
+
+    initialize: function (options) {
+        this.uuid = options.uuid;
+        this.parent = options.parent;
+        this.rootIntent = options.rootIntent;
+        this.name = '#machineName';
+    },
+
+    initialState: 'startState',
+
+    states:{
+        //states
+    }
+});

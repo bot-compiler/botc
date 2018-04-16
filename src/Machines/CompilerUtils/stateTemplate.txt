@@ -1,0 +1,40 @@
+#stateName: {
+        _onEnter: async function() {
+            bots[this.uuid] = this;
+            #code
+        },
+        back: function(intent, rootIntent){
+            data[this.uuid]["microBots"][rootIntent] = bots[this.uuid]; 
+            if(this.stack.length == this.maxSize)
+            {
+                this.stack.shift();
+            }
+            this.stack.push(rootIntent);
+            this.handle(intent)
+        },
+        '*': function(){
+            let len = this.stack.length - 1;
+            let intent = data[this.uuid]['intent'];
+            let handled = false;
+
+            for(let i = len; i >= 0; --i)
+            {
+                if(data[this.uuid]['expectedIntents'][this.stack[i]] && data[this.uuid]['expectedIntents'][this.stack[i]].indexOf(intent) >= 0)
+                {
+                    handled = true;
+                    data[this.uuid]['microBots'][this.stack[i]].handle(data[this.uuid]['intent']);
+                }
+            }
+
+            if(!handled)
+            {
+                replier(this.uuid, 'Sorry, I did not quite get that');
+                conversations.done(this.uuid);
+            }
+        },
+        stirng: function() {
+                replier(this.uuid, 'Sorry I did not understand');
+                conversations.done(this.uuid);
+        },
+        //transitions
+}

@@ -1,0 +1,14 @@
+#stateName: {
+        _onEnter: async function() {
+            bots[this.uuid] = this;
+            //expected
+            #code
+        },
+        string: async function(){
+            #code
+        },
+        back: function(intent, rootIntent){
+            this.handle(intent);
+        },
+        //transitions
+}

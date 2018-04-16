@@ -1,0 +1,38 @@
+var machina = require('machina')
+var replier = require('../Utils/reply')
+var Logger = require('../Utils/logger')
+var data = require('../data')
+var bots = require('../bot')
+var impl = require('../rootImpl')
+var conversations = require('../conversations')
+//require
+
+module.exports = machina.Fsm.extend({
+
+    initialize: function (options) {
+        this.uuid = options.uuid;
+        this.stack = [];
+        this.maxSize = 5;
+        this.name = 'RootMachine';
+    },
+
+    initialState: 'startState',
+
+    states:{
+         startState: {
+            _onEnter: function() {
+                
+            },
+            string: function() {
+                replier(this.uuid, 'Hey!');
+                conversations.done(this.uuid);
+            },
+            '*': function() {
+                replier(this.uuid, 'Hey!');
+                conversations.done(this.uuid);
+            },
+            //allTransitions
+        },
+        //states
+    }
+});
