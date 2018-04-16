@@ -188,6 +188,12 @@ function createBot(syntaxTree, createDialogFlow = false)
         if(err){
             throw new Error('Error while copying template ' + err);
         }
+
+        let machinesFolderpath = path.join(cwd, 'Machines');
+    
+        if(!fs.existsSync(machinesFolderpath))
+            fs.mkdirSync(machinesFolderpath);
+
         else
         {
             for(mb in microBots)
@@ -230,6 +236,11 @@ function updateBot(syntaxTree)
     } catch (error) {
         throw new Error('functions.json not found or cannot be parsed');
     }
+
+    let machinesFolderpath = path.join(cwd, 'Machines');
+    
+    if(!fs.existsSync(machinesFolderpath))
+        fs.mkdirSync(machinesFolderpath);
 
     for(mb in microBots)
     {
