@@ -4,7 +4,7 @@
   "version": "1.0.4",
   "author": "Abhishek V @abhivijay96 https://github.com/abhivijay96",
   "bin": {
-    "atmt": "./bin/run"
+    "botc": "./bin/run"
   },
   "bugs": "",
   "dependencies": {
