@@ -23,6 +23,7 @@
                 {
                     handled = true;
                     data[this.uuid]['microBots'][this.stack[i]].handle(data[this.uuid]['intent']);
+                    break;
                 }
             }
 
