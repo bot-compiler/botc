@@ -19,7 +19,7 @@ $ npm install -g botc
 $ botc COMMAND
 running command...
 $ botc (-v|--version|version)
-botc/1.1.1 win32-x64 node-v9.4.0
+botc/1.2.0 linux-x64 node-v10.0.0
 $ botc --help [COMMAND]
 USAGE
   $ botc COMMAND
@@ -28,27 +28,7 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [botc build](#botc-build)
 * [botc help [COMMAND]](#botc-help-command)
-* [botc init](#botc-init)
-* [botc rebuild](#botc-rebuild)
-
-## botc build
-
-initial scaffolding from bot.atmt.json
-
-```
-USAGE
-  $ botc build
-
-OPTIONS
-  -d, --dialogflow  use dialogflow
-
-EXAMPLE
-  $ botc build
-```
-
-_See code: [src/commands/build.ts](https://github.com/bot-compiler/botc/blob/v1.1.1/src/commands/build.ts)_
 
 ## botc help [COMMAND]
 
@@ -66,38 +46,6 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v1.2.1/src/commands/help.ts)_
-
-## botc init
-
-create bot.json and functions.json
-
-```
-USAGE
-  $ botc init
-
-OPTIONS
-  -n, --name=name  name of the bot
-
-EXAMPLE
-  $ botc init --name bot_name
-  creating bot.json
-```
-
-_See code: [src/commands/init.ts](https://github.com/bot-compiler/botc/blob/v1.1.1/src/commands/init.ts)_
-
-## botc rebuild
-
-apply changes in bot.atmt.json, preserve function implementations in *Impl.js files
-
-```
-USAGE
-  $ botc rebuild
-
-EXAMPLE
-  $ botc rebuild
-```
-
-_See code: [src/commands/rebuild.ts](https://github.com/bot-compiler/botc/blob/v1.1.1/src/commands/rebuild.ts)_
 <!-- commandsstop -->
 * [botc init]
 * [botc build]

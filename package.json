@@ -1,7 +1,7 @@
 {
   "name": "botc",
   "description": "CLI to create Chat bots using Bot Compiler",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "author": "Abhishek V @abhivijay96 https://github.com/abhivijay96",
   "bin": {
     "botc": "./bin/run"
