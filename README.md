@@ -1,7 +1,7 @@
 botc
 ====
 
-CLI to create Chat bots using [Bot Compiler](https://abhivijay96.gitbooks.io/bot-compiler/content/quickstart.html)
+CLI to create Chat bots using [Bot Compiler](https://abhivijay96.gitbooks.io/bot-compiler/content/)
 
 [![Version](https://img.shields.io/npm/v/botc.svg)](https://npmjs.org/package/botc)
 [![License](https://img.shields.io/npm/l/botc.svg)](https://github.com/bot-compiler/botc/blob/master/package.json)
@@ -52,10 +52,10 @@ _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v1.2.1
 * [botc rebuild]
 
 # VSCode extension 
-[Get VSCode extension here to start writing Bot Compiler schema with intellisense](https://marketplace.visualstudio.com/items?itemName=abhivijay96.Bot Compiler-schema-intellisense)
+[Get VSCode extension here to start writing Bot Compiler schema with intellisense](https://marketplace.visualstudio.com/items?itemName=abhivijay96.bot-compiler-schema-support)
 
 # Quickstart
-[Gmail Filter creator - Chat bot to create Gmail filters](https://abhivijay96.gitbooks.io/bot-compiler/content/quickstart.html)
+[Gmail Filter creator - Chat bot for pizza ordering](https://abhivijay96.gitbooks.io/bot-compiler/content/chapter1/example.html)
 
 ## botc init -n [BotName]
 

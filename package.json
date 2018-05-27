@@ -45,7 +45,11 @@
     "/lib"
   ],
   "keywords": [
-    "oclif"
+    "oclif",
+    "botc",
+    "chatbot compiler",
+    "microsoftbotconnector",
+    "dailogflow"
   ],
   "license": "GNU",
   "main": "lib/index.js",
