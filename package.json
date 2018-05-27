@@ -63,7 +63,7 @@
   "repository": "https://github.com/bot-compiler/botc",
   "scripts": {
     "build": "rm -rf lib && grunt && tsc",
-    "clean": "rm .oclif.manifest.json",
+    "clean": "rm -f .oclif.manifest.json",
     "lint": "tsc -p test --noEmit && tslint -p test -t stylish",
     "postpublish": "npm run clean",
     "posttest": "npm run lint",
