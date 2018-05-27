@@ -57,7 +57,7 @@ function handleBot(dfResponse, session)
 
     data[uuid]['res'] = res;
 
-    let intent = dfResponse.result.metadata.intentName;
+    let intent = dfResponse.queryResult.intent.displayName;
     data[uuid]['intent'] = intent;
     data[uuid]['context'] = dfResponse;
 
@@ -65,7 +65,7 @@ function handleBot(dfResponse, session)
         intent = 'string'
 
     for (param in data[uuid]["context"].result.parameters) {
-        data[uuid]['store'][param] = data[uuid]["context"].result.parameters[param]
+        data[uuid]['store'][param] = data[uuid]["context"].queryResult.parameters[param]
     }
 
     semaphores[uuid].take(function() {

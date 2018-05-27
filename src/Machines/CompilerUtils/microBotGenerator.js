@@ -78,7 +78,7 @@ function generator(microBots, functions)
                     if(transition == 'string')
                         stringFound = true;
                     // for this to be triggered, syntax tree should have name parameter which will be used to put it in the datastore.
-                    transitionCode = transitions[transition]['name'] == undefined ? '' : 'data[this.uuid]["store"]["' + transitions[transition]['name'] + '"] = data[this.uuid]["context"].result.resolvedQuery;'
+                    transitionCode = transitions[transition]['name'] == undefined ? '' : 'data[this.uuid]["store"]["' + transitions[transition]['name'] + '"] = data[this.uuid]["context"].queryResult.queryText;'
                     //transition specific changes
                     if(transitions[transition]['nextState'] != undefined)
                     {

@@ -51,6 +51,7 @@ intents = function(devToken) {
             addParameters(body, ints[key].parameters);
             body.name = key;
             body.templates = templates;
+            body.webhookUsed = true;
             body.auto = true;
             var options = {
                 headers: {
@@ -92,8 +93,8 @@ intents = function(devToken) {
 
         sendRequest(options, function(error, response) {
             if(error) {
-                console.log('error in getting intent ' + id);
-                return callback('error in getting intent ' + id, null)
+                console.log('error in getting intent ');
+                return callback('error in getting intent ', null)
             }
             callback(null, response)
         })        
@@ -109,7 +110,39 @@ intents = function(devToken) {
                 defIntent = _.findWhere(intents, { 'fallbackIntent': true, 
                     'name': 'Default Fallback Intent' });
                 console.log(defIntent);
-                apiCall(defIntent);
+                if(defIntent != undefined)
+                    apiCall(defIntent);
+                else {
+                    let optns = {
+                        method: 'POST',
+                        url: 'https://api.dialogflow.com/v1/intents',
+                        qs: { v: '20150910' },
+                        headers:
+                            {
+                                'content-type': 'application/json',
+                                authorization: 'Bearer ' + devToken
+                            },
+                        body:
+                            {
+                                events: [],
+                                fallbackIntent: true,
+                                name: 'Default Fallback Intent',
+                                responses: [],
+                                templates: [],
+                                userSays: [],
+                                webhookForSlotFilling: false,
+                                webhookUsed: true
+                            },
+                        json: true
+                    };
+
+                    request(optns, function (error, response, body) {
+                        if (error) 
+                            console.log('Error while creating Default fallback intent');
+                        else
+                            console.log('Created default fallback intent');
+                    });
+                }
             });
         } else {
             this.get(arguments[0], function(error, intent) {
