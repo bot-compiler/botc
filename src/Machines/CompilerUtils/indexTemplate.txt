@@ -17,7 +17,8 @@ app.get('/', (req, res) => {
 
 app.post('/', jsonParser, (req, res) => {
     res.setHeader('Content-Type', 'application/json');
-    let uuid = req.body.sessionId;
+    let uuid = req.body.session.split('/');
+    uuid = uuid[uuid.length - 1];
     console.log("Session id is : " + uuid);
 
     if (semaphores[uuid] == undefined) {
