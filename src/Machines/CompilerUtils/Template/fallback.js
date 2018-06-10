@@ -1,0 +1,1 @@
+export const fallback="Enter the text which the bot needs to tell if the user's intent is not any of the tasks your bot can do."

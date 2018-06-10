@@ -4,6 +4,7 @@ var Logger = require('../Utils/logger')
 var data = require('../data')
 var bots = require('../bot')
 var impl = require('../rootImpl')
+var fallback = require('../fallback')
 var conversations = require('../conversations')
 //require
 
@@ -24,11 +25,11 @@ module.exports = machina.Fsm.extend({
                 
             },
             string: function() {
-                replier(this.uuid, 'Hey!');
+                replier(this.uuid, fallback);
                 conversations.done(this.uuid);
             },
             '*': function() {
-                replier(this.uuid, 'Hey!');
+                replier(this.uuid, fallback);
                 conversations.done(this.uuid);
             },
             //allTransitions
