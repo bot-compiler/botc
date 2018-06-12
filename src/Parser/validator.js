@@ -139,7 +139,7 @@ var bot = {
         "microBots": {"type": "array", "items": {"$ref": "/microBot"}},
         "about": {"type": "string"}
     },
-    "required": ["intents", "token", "subIntents", "entities", "microBots"]
+    "required": ["intents", "token", "subIntents", "entities", "microBots", "about"]
 }
 
 v.addSchema(parameter, '/parameter')

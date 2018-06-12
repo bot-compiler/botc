@@ -135,7 +135,6 @@ intents = function (devToken) {
                     'name': 'Default Fallback Intent'
                 });
                 welIntent = _.findWhere(intents, {
-                    'fallbackIntent': true,
                     'name': 'Default Welcome Intent'
                 });
                 if (defIntent != undefined)
