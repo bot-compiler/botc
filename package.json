@@ -1,6 +1,6 @@
 {
   "name": "template",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Bot Compiler generated Bot",
   "main": "index.js",
   "scripts": {
