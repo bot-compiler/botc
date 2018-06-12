@@ -47,7 +47,7 @@ intents = function (devToken) {
         var toCreate = {};
 
         try {
-            var intentsInDialogflow = axios({
+            axios({
                 method: 'get',
                 url: 'https://api.dialogflow.com/v1/intents?v=20150910',
                 headers: {
@@ -56,7 +56,7 @@ intents = function (devToken) {
             }).then(function (response) {
                 let keys = Object.keys(ints);
                 keys.map((intentInTree) => {
-                    if (_.findWhere(intentsInDialogflow.data, { 'name': intentInTree }) != undefined) {
+                    if (_.findWhere(response.data, { 'name': intentInTree }) != undefined) {
                         delete ints[intentInTree];
                     };
                 });
@@ -137,8 +137,14 @@ intents = function (devToken) {
                 welIntent = _.findWhere(intents, {
                     'name': 'Default Welcome Intent'
                 });
+                
+                
+                if (welIntent)
+                    deleteIntent(welIntent);
+                
                 if (defIntent != undefined)
                     apiCall(defIntent);
+                    
                 else {
                     let optns = {
                         method: 'POST',
@@ -176,7 +182,7 @@ intents = function (devToken) {
                 if (error || !intent)
                     return callbackify(error, null);
                 defIntent = intent
-                apiCapp(defIntent);
+                apiCall(defIntent);
             })
         }
 

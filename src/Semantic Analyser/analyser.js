@@ -107,6 +107,7 @@ function convertParseTree(parseTree)
         throw new Error(JSON.stringify(errors, null, '\t'));
     
     syntaxTree['token'] = parseTree['token'];
+    syntaxTree['about'] = parseTree['about'];
     return syntaxTree;
 }
 

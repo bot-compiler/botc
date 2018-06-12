@@ -128,13 +128,12 @@ function createDialogFlowModel(syntaxTree) {
         if (error) {
             return console.log("error in entity creation!");
         }
-        console.log(results);
         df.intents.prepare(() => { console.log('Done preparing dialogflow.') });
         df.intents.create(syntaxTree, function (error, results) {
             if (error) {
                 return console.log(error + "\n\nError in intents creation \n\n");
             }
-            console.log(results)
+            console.log('Finished adding/updating intents in dialogflow')
         })
     });
 }

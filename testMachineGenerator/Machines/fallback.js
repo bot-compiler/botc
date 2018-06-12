@@ -1,0 +1,1 @@
+export const fallback="I am A bot you moron"

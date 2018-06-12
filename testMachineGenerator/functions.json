@@ -1,0 +1,19 @@
+{
+	"root": [],
+	"add": [
+		"addTodoToList"
+	],
+	"list": [
+		"showTodos",
+		"deletTodoAt",
+		"updateTodoAt"
+	],
+	"update": [
+		"showAndAskWhichToUpdate",
+		"updateTodo"
+	],
+	"remove": [
+		"showAndAskWhichToUpdate",
+		"deleteTodo"
+	]
+}
