@@ -2,6 +2,7 @@ var _ = require('underscore');
 var request = require('request');
 var async = require('async');
 var _ = require('underscore');
+var axios = require('axios');
 
 var intents = {};
 var URI = 'https://api.dialogflow.com/v1/intents';
@@ -44,6 +45,28 @@ intents = function(devToken) {
         // var count = 0;
     
         var optionsArr = [];
+        var toCreate = {};
+
+        try {
+            var intentsInDialogflow = await axios({
+                method: 'get',
+                url: 'https://api.dialogflow.com/v1/intents?v=20150910',
+                headers: {
+                    authorization: 'Bearer ' + devToken
+                }
+            });
+            let keys = Object.keys(ints);
+            keys.map((intentInTree) => {
+                if(_.findWhere(intentsInDialogflow.data, { 'name': intentInTree }) != undefined)
+                {
+                    delete ints[intentInTree];
+                };
+            });
+        } catch (error) {
+            callback(error, null);
+            return;
+        }
+        
     
         for(key in ints) {
             var templates = getTemplates(ints[key].utterances, ints[key].parameters); 
@@ -68,8 +91,7 @@ intents = function(devToken) {
         }
         async.map(optionsArr, sendRequest, function(error, results) {
             if(error) {
-                console.log("ERRORR!!!");
-                return callback("Fail");
+                return callback("Failed to create all the intents/sub intents");
             }
             callback(null, results.status);        
         })
@@ -93,14 +115,13 @@ intents = function(devToken) {
 
         sendRequest(options, function(error, response) {
             if(error) {
-                console.log('error in getting intent ');
-                return callback('error in getting intent ', null)
+                return callback('error in getting intent', null)
             }
             callback(null, response)
         })        
     }
 
-    obj.useWebHook = function() {
+    obj.prepare = function() {
         var callback = arguments[arguments.length - 1]
         // id is present
         if(!arguments[1]) {
@@ -109,7 +130,8 @@ intents = function(devToken) {
                     return callback(error, null);
                 defIntent = _.findWhere(intents, { 'fallbackIntent': true, 
                     'name': 'Default Fallback Intent' });
-                console.log(defIntent);
+                welIntent = _.findWhere(intents, { 'fallbackIntent': true, 
+                    'name': 'Default Welcome Intent' });
                 if(defIntent != undefined)
                     apiCall(defIntent);
                 else {
@@ -152,7 +174,9 @@ intents = function(devToken) {
                 apiCapp(defIntent);
             })
         }
+        
         var self = this;
+
         function apiCall(defIntent) {
             defIntent.webhookUsed = true;
             var options = {
@@ -164,6 +188,23 @@ intents = function(devToken) {
                 'method': 'PUT',
                 'json': true,
                 'body': defIntent
+            };
+            sendRequest(options, function(error, response) {
+                if(error)
+                    return callback(error, null);
+                callback(null, response);
+            })
+        }
+
+        function deleteIntent(intent) {
+            var options = {
+                headers: {
+                    'Authorization': 'Bearer ' + self.devToken,
+                    'Content-Type': 'application/json'
+                },
+                'uri': URI + '/' + intent.id,
+                'method': 'DELETE',
+                'json': true
             };
             sendRequest(options, function(error, response) {
                 if(error)

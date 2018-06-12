@@ -136,7 +136,8 @@ var bot = {
         "intents": {"type": "array", "items": {"$ref": "/intent"}},
         "subIntent": {"type": "array", "items": {"$ref": "/subIntent"}},
         "entities": {"type": "array", "items": {"$ref": "/entity"}},
-        "microBots": {"type": "array", "items": {"$ref": "/microBot"}}
+        "microBots": {"type": "array", "items": {"$ref": "/microBot"}},
+        "about": {"type": "string"}
     },
     "required": ["intents", "token", "subIntents", "entities", "microBots"]
 }

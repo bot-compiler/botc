@@ -13,12 +13,14 @@ export default class Rebuild extends Command {
   ]
 
   static flags = {
+    dialogflow: flags.boolean({char: 'd', description: 'use dialogflow'})
   }
 
   static args = []
 
   async run() {
     const {args, flags} = this.parse(Rebuild)
+    const df = flags.dialogflow || false
     let cwd = process.cwd();
     try {
       let atmtFile = path.join(cwd, 'bot.json');
@@ -28,7 +30,7 @@ export default class Rebuild extends Command {
         throw new Error(JSON.stringify(errors, null, '\t'))
 
       let syntaxTree = sematicAnalyser(atmtFileJson);
-      generator.update(syntaxTree);
+      generator.update(syntaxTree, flags);
       this.log('Done applying changes from bot.json');
     } catch (err) {
       this.error(err);

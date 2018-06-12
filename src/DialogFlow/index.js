@@ -11,7 +11,7 @@ var dialogFlow = function(devToken) {
     obj.devToken = devToken;
     obj.intents = intents(devToken);
     obj.entities = entities(devToken);
-
+    // add obj.deleteDefaultWelcomeIntent
     return obj;
 }
 
