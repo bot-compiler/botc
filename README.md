@@ -19,7 +19,7 @@ $ npm install -g botc
 $ botc COMMAND
 running command...
 $ botc (-v|--version|version)
-botc/1.3.3 linux-x64 node-v10.0.0
+botc/1.4.0 linux-x64 node-v10.0.0
 $ botc --help [COMMAND]
 USAGE
   $ botc COMMAND
@@ -48,7 +48,7 @@ EXAMPLE
   $ botc build
 ```
 
-_See code: [src/commands/build.ts](https://github.com/bot-compiler/botc/blob/v1.3.3/src/commands/build.ts)_
+_See code: [src/commands/build.ts](https://github.com/bot-compiler/botc/blob/v1.4.0/src/commands/build.ts)_
 
 ## botc help [COMMAND]
 
@@ -83,7 +83,7 @@ EXAMPLE
   creating bot.json
 ```
 
-_See code: [src/commands/init.ts](https://github.com/bot-compiler/botc/blob/v1.3.3/src/commands/init.ts)_
+_See code: [src/commands/init.ts](https://github.com/bot-compiler/botc/blob/v1.4.0/src/commands/init.ts)_
 
 ## botc rebuild
 
@@ -100,7 +100,7 @@ EXAMPLE
   $ botc rebuild
 ```
 
-_See code: [src/commands/rebuild.ts](https://github.com/bot-compiler/botc/blob/v1.3.3/src/commands/rebuild.ts)_
+_See code: [src/commands/rebuild.ts](https://github.com/bot-compiler/botc/blob/v1.4.0/src/commands/rebuild.ts)_
 <!-- commandsstop -->
 * [botc init]
 * [botc build]
