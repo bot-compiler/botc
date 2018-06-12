@@ -77,6 +77,11 @@ var bot =
             "name": "number",
             "utterances": [],
             "parameters": []
+        },
+        {
+            "name": "isswag",
+            "utterances": [],
+            "parameters": []
         }
     ],
     "entities": [],
@@ -178,4 +183,4 @@ var bot =
 }
 
 let syntaxTree = semanticAnalyser(bot);
-generator.create(syntaxTree, true);
+generator.update(syntaxTree, true);

@@ -71,7 +71,7 @@ intents = function (devToken) {
                     body.auto = true;
                     var options = {
                         headers: {
-                            'Authorization': 'Bearer ' + this.devToken,
+                            'Authorization': 'Bearer ' + devToken,
                             'Content-Type': 'application/json'
                         },
                         'uri': URI,
